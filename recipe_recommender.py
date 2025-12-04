@@ -118,5 +118,6 @@ def home():
     return render_template_string(HTML_PAGE, results=results)
 
 if __name__ == "__main__":
-    print("Starting Recipe Recommender System...")
-    app.run(debug=True)
+    import os   # <-- Add this line!
+    port = int(os.environ.get("PORT", 5000))  # Use Render’s port if assigned
+    app.run(host="0.0.0.0", port=port, debug=True) 
